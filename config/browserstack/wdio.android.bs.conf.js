@@ -1,4 +1,4 @@
-import { config } from './wdio.default.conf.js';
+import { config } from '../wdio.default.conf.js';
 import path from 'path';
 import dotenv from 'dotenv';
 dotenv.config();
