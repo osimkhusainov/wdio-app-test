@@ -1,5 +1,5 @@
 import report from '@wdio/allure-reporter';
-import { deleteDirectory } from '../test/utils/commands.js';
+import { deleteDirectory } from '../test/helpers/commands.js';
 
 const QA_URL = 'https://consumer.qa.tidelaundry.com';
 const STAGING_URL = 'https://consumer.staging.tidelaundry.com';

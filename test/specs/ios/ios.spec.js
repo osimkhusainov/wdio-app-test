@@ -1,5 +1,5 @@
 import listScreen from '../../screenObjects/ios/list.screen.js';
-import { addLog } from '../../utils/commands.js';
+import { addLog } from '../../helpers/commands.js';
 
 describe('Test', () => {
   it('Test', async () => {
