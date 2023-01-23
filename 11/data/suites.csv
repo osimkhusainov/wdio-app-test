@@ -1,2 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"broken","Mon Jan 23 01:20:18 GMT 2023","Mon Jan 23 01:20:30 GMT 2023","12249","","test","","test","test","test",""
+"failed","Mon Jan 23 19:07:45 GMT 2023","Mon Jan 23 19:07:46 GMT 2023","1294","","test","","test","test","test",""
