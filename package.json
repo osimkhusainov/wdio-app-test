@@ -23,7 +23,8 @@
   "scripts": {
     "ios": "wdio run config/wdio.ios.conf.js",
     "android": "wdio run config/wdio.android.conf.js",
-    "report": "npx allure generate allure-results --clean && npx allure open"
+    "report": "npx allure generate allure-results --clean && npx allure open",
+    "bs:run": "npx wdio config/browserstack/wdio.android.bs.conf.js --spec test/specs/android/noteapp.spec.js --env allure=true"
   },
   "dependencies": {
     "@wdio/cli": "^8.1.3",
