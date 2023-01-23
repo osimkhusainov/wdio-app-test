@@ -1,1 +1,1 @@
-{}
+{"6ac86638f9ae267f1f0d34afa19cefe1":{"statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1},"items":[{"uid":"5c8cdd907b55369","reportUrl":"https://osimkhusainov.github.io/wdio-app-test/7//#testresult/5c8cdd907b55369","status":"passed","time":{"start":1674499291973,"stop":1674499292601,"duration":628}}]}}
