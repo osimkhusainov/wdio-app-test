@@ -67,8 +67,3 @@ jobs:
           SLACK_TITLE: Message
           SLACK_USERNAME: tide-automation
           SLACK_FOOTER: Repository ${{ github.repository.url }}
-  get_run_number:
-    needs: build
-    uses: ./.github/workflows/slack-notify.yaml
-    secrets:
-      RUN_NUMBER: ${{github.run_number}}

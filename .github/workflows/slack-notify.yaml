@@ -6,10 +6,6 @@ on:
     types:
       - completed
 
-  workflow_call:
-    secrets:
-      RUN_NUMBER:
-        required: true
 jobs:
   on-success:
     runs-on: ubuntu-latest
@@ -21,7 +17,6 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
-          SLACK_ICON: https://github.com/rtCamp.png?size=48
           SLACK_MESSAGE: Allure report is successfully deployed on GitHub Pages. Use the link from first notification to open it.
           SLACK_MSG_AUTHOR: ${{github.actor}}
           SLACK_TITLE: Message
@@ -37,8 +32,7 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
-          SLACK_ICON: https://github.com/rtCamp.png?size=48
-          SLACK_MESSAGE: Failed build
+          SLACK_MESSAGE: Build is failed.
           SLACK_MSG_AUTHOR: ${{github.actor}}
           SLACK_TITLE: Message
           SLACK_USERNAME: tide-automation
