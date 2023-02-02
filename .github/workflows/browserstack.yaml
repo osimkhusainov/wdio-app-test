@@ -1,12 +1,10 @@
 name: Browserstack
 on:
-  # push:
-  #   branches: [main]
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
 
-permissions:
-  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -55,6 +53,10 @@ jobs:
         with:
           folder: allure-history
 
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
       - name: Slack Notification
         if: always()
         uses: rtCamp/action-slack-notify@v2
@@ -67,3 +69,19 @@ jobs:
           SLACK_TITLE: Message
           SLACK_USERNAME: tide-automation
           SLACK_FOOTER: Repository ${{ github.repository.url }}
+
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - name: Slack Notification
+        if: always()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_MESSAGE: Build is failed.
+          SLACK_MSG_AUTHOR: ${{github.actor}}
+          SLACK_TITLE: Message
+          SLACK_USERNAME: tide-automation
+          SLACK_FOOTER: Repository ${{ github.repository }}
