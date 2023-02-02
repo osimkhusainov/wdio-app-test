@@ -7,3 +7,5 @@ allure-results/
 .flaskenv*
 !.env.project
 !.env.vault
+mochawesome-report/
+results/

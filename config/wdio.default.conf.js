@@ -133,11 +133,18 @@ export const config = {
   reporters: [
     'spec',
     [
-      'allure',
+      // 'allure',
+      // {
+      //   outputDir: 'allure-results',
+      //   disableWebdriverStepsReporting: false,
+      //   disableWebdriverScreenshotsReporting: false,
+      // },
+      'mochawesome',
       {
-        outputDir: 'allure-results',
-        disableWebdriverStepsReporting: false,
-        disableWebdriverScreenshotsReporting: false,
+        outputDir: './results',
+        outputFileFormat: function () {
+          return `results.json`;
+        },
       },
     ],
   ],
@@ -298,7 +305,9 @@ export const config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
-  // onComplete: function(exitCode, config, capabilities, results) {
+  // onComplete: function () {
+  //   const mergeResults = require('@wdio-mochawesome-reporter/mergeResults');
+  //   mergeResults();
   // },
   /**
    * Gets executed when a refresh happens.
