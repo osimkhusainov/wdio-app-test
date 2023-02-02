@@ -55,7 +55,7 @@ jobs:
 
   on-success:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.push.conclusion == 'success' }}
     steps:
       - name: Slack Notification
         if: always()
@@ -72,7 +72,7 @@ jobs:
 
   on-failure:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    if: ${{ github.event.push.conclusion == 'failure' }}
     steps:
       - name: Slack Notification
         if: always()
