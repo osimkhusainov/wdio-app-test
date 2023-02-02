@@ -54,12 +54,8 @@ jobs:
         with:
           folder: allure-history
 
-  on-success:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.push.conclusion == 'success' }}
-    steps:
       - name: Slack Notification
-        if: always()
+        if: ${{ github.event.push.conclusion == 'success' }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
@@ -71,12 +67,8 @@ jobs:
           SLACK_USERNAME: tide-automation
           SLACK_FOOTER: Repository ${{ github.repository.url }}
 
-  on-failure:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.push.conclusion == 'failure' }}
-    steps:
       - name: Slack Notification
-        if: always()
+        if: ${{ github.event.push.conclusion == 'failure' }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
